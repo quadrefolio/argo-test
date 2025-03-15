@@ -19,3 +19,15 @@ spec:
           image: nginx:latest
           ports:
             - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /read
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
