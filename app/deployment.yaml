@@ -13,12 +13,16 @@ spec:
     metadata:
       labels:
         app: nginx
-    spec: 
+    spec:
       containers:
         - name: nginx
           image: nginx:latest
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
           livenessProbe:
             httpGet:
               path: /live
@@ -31,3 +35,7 @@ spec:
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 10
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config
