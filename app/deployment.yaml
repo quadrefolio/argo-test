@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-app # Changed container name to reflect your application
-          image: quadrefolio/demo-app:latest # Your application image
+          image: quadrefolio/demo-app:1719056053-cfbdde00
           ports:
             - containerPort: 80 # Or the port your application uses
           livenessProbe:
