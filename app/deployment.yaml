@@ -16,9 +16,11 @@ spec:
     spec:
       containers:
         - name: demo-app # Changed container name to reflect your application
-          image: quadrefolio/demo-app:latest # Your application image
+          image: quadrefolio/demo-app:latest 
+      imagePullSecrets:
+        - name: regcred
           ports:
-            - containerPort: 80 # Or the port your application uses
+            - containerPort: 80 
           livenessProbe:
             httpGet:
               path: /live # Adjust path to your application's liveness endpoint
