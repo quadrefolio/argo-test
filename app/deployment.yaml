@@ -16,19 +16,19 @@ spec:
     spec:
       containers:
         - name: demo-app 
-          image: quadrefolio/demo-app:1719127512-a208f391
+          image: quadrefolio/demo-app:latest 
           ports:
-            - containerPort: 80 
+            - containerPort: 8080 
           livenessProbe:
             httpGet:
               path: /live 
-              port: 80 
+              port: 8080
             initialDelaySeconds: 5
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /read
-              port: 80 
+              port: 8080
             initialDelaySeconds: 5
             periodSeconds: 10
       imagePullSecrets:
