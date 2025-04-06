@@ -19,5 +19,17 @@ spec:
           image: quadrefolio/demo-app:latest 
           ports:
             - containerPort: 8080 
+          livenessProbe:
+            httpGet:
+              path: /live 
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /read
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
       imagePullSecrets:
         - name: regcred
