@@ -9,6 +9,7 @@ spec:
     app: demo-app
   ports:
     - protocol: TCP
-      port: 80       # This is the port the service exposes
-      targetPort: 8080  # This should match your application's port (8080)
-  type: ClusterIP
+      port: 80        # This is the port the service exposes
+      targetPort: 8080 # This should match your application's port
+      nodePort: 30000  # This is the port exposed on your Minikube node (you can choose a specific port or let Kubernetes assign one)
+  type: NodePort        # Exposes the service outside the cluster via a NodePort
