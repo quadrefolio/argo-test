@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-app 
-          image: quadrefolio/demo-app:1785152548-0699184f
+          image: quadrefolio/demo-app:1785159416-5362895d
           ports:
             - containerPort: 8080 
           livenessProbe:
