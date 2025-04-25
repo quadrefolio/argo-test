@@ -28,7 +28,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /read
-              port: 8080
+              port: 808
             initialDelaySeconds: 5
             periodSeconds: 10
       imagePullSecrets:
