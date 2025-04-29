@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app-deployment # Changed name to reflect your application
+  name: demo-app-deployment 
   labels:
-    app: demo-app # Changed label to reflect your application
+    app: demo-app 
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: demo-app # Changed label to reflect your application
+      app: demo-app 
   template:
     metadata:
       labels:
-        app: demo-app # Changed label to reflect your application
+        app: demo-app 
     spec:
       containers:
-        - name: demo-app # Changed container name to reflect your application
+        - name: demo-app 
           image: quadrefolio/demo-app:latest 
       imagePullSecrets:
         - name: regcred
@@ -23,14 +23,13 @@ spec:
             - containerPort: 80 
           livenessProbe:
             httpGet:
-              path: /live # Adjust path to your application's liveness endpoint
-              port: 80 # Or the port your application uses
+              path: /live 
+              port: 80 
               initialDelaySeconds: 5
               periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /read # Adjust path to your application's readiness endpoint
-              port: 80 # Or the port your application uses
+              path: /read
+              port: 80 
               initialDelaySeconds: 5
               periodSeconds: 10
-      #volumes section was removed as it was referring to nginx config map.
