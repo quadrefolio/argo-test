@@ -24,7 +24,7 @@ spec:
               path: /live 
               port: 8080
             initialDelaySeconds: 5
-            periodSeconds: 10
+            periodSeconds: 9
           readinessProbe:
             httpGet:
               path: /read
