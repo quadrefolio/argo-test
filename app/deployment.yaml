@@ -16,20 +16,26 @@ spec:
     spec:
       containers:
         - name: demo-app 
-          image: quadrefolio/demo-app:latest 
-      imagePullSecrets:
-        - name: regcred
+          image: quadrefolio/demo-app:latest
           ports:
-            - containerPort: 80 
+            - containerPort: 8080 
+          startupProbe:
+            httpGet:
+              path: /start
+              port: 8080
+            failureThreshold: 30
+            periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /live 
-              port: 80 
-              initialDelaySeconds: 5
-              periodSeconds: 10
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /read
-              port: 80 
-              initialDelaySeconds: 5
-              periodSeconds: 10
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      imagePullSecrets:
+        - name: regcred
